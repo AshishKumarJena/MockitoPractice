@@ -3,23 +3,23 @@ package com.ashish.business;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ashish.data.api.TodoSevice;
+import com.ashish.data.api.TodoService;
 //TodoBusinessImpl SUT
 //TodoService Dependency
 
 public class TodoBusinessImpl {
-	private TodoSevice todoService;
+	private TodoService todoService;
 
-	public TodoBusinessImpl(TodoSevice todoService) {
+	public TodoBusinessImpl(TodoService todoService) {
 		super();
 		this.todoService = todoService;
 	}
 	
-	public List<String> retriveTodosRelatedToSpring(String user){
+	public List<String> retrieveTodosRelatedToSpring(String user){
 		List<String> filteredTodos = new ArrayList<String>();
-		List<String> todos = todoService.retrieveTodos(user);
+		List<String> allTodos = todoService.retrieveTodos(user);
 		
-		for(String todo:todos) {
+		for(String todo:allTodos) {
 			if(todo.contains("Spring")) {
 				filteredTodos.add(todo);
 			}
